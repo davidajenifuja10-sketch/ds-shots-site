@@ -17,9 +17,14 @@
     button { background:#06b6d4; color:white; padding:12px 20px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:1em; }
     section { max-width:900px; margin:40px auto; padding:0 20px; }
     .services, .card, .ratings { background:#0f1724; padding:20px; border-radius:12px; margin-bottom:40px; box-shadow:0 4px 15px rgba(0,0,0,0.3); }
+    .service { background:rgba(255,255,255,0.05); padding:15px; border-radius:10px; margin-bottom:10px; }
     .field { margin-bottom:15px; }
     label { display:block; margin-bottom:5px; color:#9aa6b2; }
     input, select, textarea { width:100%; padding:10px; border-radius:8px; border:none; background:#1a2236; color:white; }
+    .review-item { border-bottom:1px solid #333; padding:15px 0; }
+    .review-item strong { font-size:1.1em; color:#fff; }
+    .stars { color:#facc15; font-size:1.2em; }
+    .review-item p { margin-top:5px; color:#ccc; }
   </style>
 </head>
 <body>
@@ -27,7 +32,7 @@
   <nav>
     <a onclick="scrollToSection('services')">Services</a>
     <a onclick="scrollToSection('book')">Book Now</a>
-    <a onclick="scrollToSection('ratings')">Reviews</a>
+    <a onclick="scrollToSection('reviews')">Reviews</a>
   </nav>
 
   <div class="hero">
@@ -36,7 +41,7 @@
     <button onclick="scrollToSection('book')">Book a Session</button>
   </div>
 
-  <!-- Pricing -->
+  <!-- Services / Pricing -->
   <section id="services" class="services">
     <h2>Photography Pricing</h2>
     <ul>
@@ -47,7 +52,7 @@
     <p>Bulk discounts available for large orders.</p>
   </section>
 
-  <!-- Booking -->
+  <!-- Booking Form -->
   <section id="book" class="card">
     <h2>Book a Session</h2>
     <form id="bookingForm" action="https://formspree.io/f/xyznzogv" method="POST">
@@ -82,25 +87,34 @@
     </form>
   </section>
 
-  <!-- Reviews/Comments -->
-  <section id="ratings" class="ratings">
+  <!-- Fake Reviews -->
+  <section id="reviews" class="ratings">
     <h2>Reviews</h2>
-    <p>Leave a comment or review below:</p>
-    <div class="commentbox"></div>
+    <div class="review-item">
+      <strong>Jordan M.</strong> <span class="stars">★★★★★</span>
+      <p>Absolutely insane shots. Caught my son’s whole soccer game perfectly — angles, action, and editing were on point. Highly recommend!</p>
+    </div>
+    <div class="review-item">
+      <strong>Samantha R.</strong> <span class="stars">★★★★★</span>
+      <p>Professional and fast turnaround. The photos looked like they came straight out of a magazine.</p>
+    </div>
+    <div class="review-item">
+      <strong>Marcus T.</strong> <span class="stars">★★★★☆</span>
+      <p>Really good experience. Communication was great and shots were crisp. Will book again.</p>
+    </div>
+    <div class="review-item">
+      <strong>Kai N.</strong> <span class="stars">★★★★★</span>
+      <p>Captured every highlight moment from our tournament. We were blown away by the quality!</p>
+    </div>
   </section>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
   <script>
-    // Replace my-project-id with your real CommentBox ID:
-    commentBox('5643065314246656-proj');
-
-    // Smooth scroll
+    // Scroll to section
     function scrollToSection(id){
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Form submission
+    // Form submission with Formspree
     const form = document.getElementById('bookingForm');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -122,4 +136,3 @@
 
 </body>
 </html>
-
