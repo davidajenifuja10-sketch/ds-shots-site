@@ -11,13 +11,30 @@
     nav { display:flex; justify-content:center; gap:40px; background:#0f1724; padding:15px 0; position:sticky; top:0; z-index:100; }
     nav a { font-weight:600; cursor:pointer; }
 
-    .hero { text-align:center; padding:50px 20px; }
+    /* Hero with auto-sized background */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: url('images/photo1.jpg') center/cover fixed no-repeat;
+      color: white;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5); /* overlay for readability */
+    }
+    .hero h1, .hero p, .hero button {
+      position: relative;
+      z-index: 1;
+    }
     .hero h1 { font-size:2.5em; margin-bottom:10px; }
     .hero p { font-size:1.2em; margin-bottom:20px; }
     button { background:#06b6d4; color:white; padding:12px 20px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:1em; }
 
     section { max-width:900px; margin:40px auto; padding:0 20px; }
-    .services, .card, .ratings { background:#0f1724; padding:20px; border-radius:12px; margin-bottom:40px; box-shadow:0 4px 15px rgba(0,0,0,0.3); }
+    .services, .card { background:#0f1724; padding:20px; border-radius:12px; margin-bottom:40px; box-shadow:0 4px 15px rgba(0,0,0,0.3); }
     .field { margin-bottom:15px; }
     label { display:block; margin-bottom:5px; color:#9aa6b2; }
     input, select, textarea { width:100%; padding:10px; border-radius:8px; border:none; background:#1a2236; color:white; }
@@ -65,6 +82,7 @@
     <a onclick="scrollToSection('contact')">Contact</a>
   </nav>
 
+  <!-- Hero -->
   <div class="hero">
     <h1>D's Sports Photography</h1>
     <p>Sports photography in Calgary</p>
@@ -206,3 +224,4 @@
 
 </body>
 </html>
+
